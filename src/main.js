@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/router'
 import Header from '../src/components/Header/Header.vue'
+import store from './store/index'
 Vue.component('Header', Header)
+
 
 Vue.config.productionTip = false
 
@@ -13,5 +15,6 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router
+  router,
+  store
 })
