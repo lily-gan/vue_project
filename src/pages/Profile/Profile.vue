@@ -1,18 +1,20 @@
 <template>
   <section class="profile">
-    <Header title="个人中心"></Header>
-    <section class="profile-number" @click="$router.push('/login')">
+    <Header title="我的"/>
+    <section class="profile-number" @click="$router.push(user._id ? '/userinfo':'/login')">
       <a href="javascript:" class="profile-link">
         <div class="profile_image">
           <i class="iconfont icon-_huiyuanguanli"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
-          <p>
+          <p class="user-info-top" v-if="!user.phone">
+            {{user.name ? user.name :'登录/注册'}}
+          </p>
+          <p v-if="!user.name">
                 <span class="user-icon">
                   <i class="iconfont icon-shouji "></i>
                 </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{user.phone ? user.phone : '暂无绑定手机号'}}</span>
           </p>
         </div>
         <span class="arrow">
@@ -88,16 +90,39 @@
         </div>
       </a>
     </section>
+    <section class="profile_my_order border-1px">
+      <mt-button type="danger" style="width: 100%" @click="logout" v-if="user._id">退出登陆</mt-button>
+    </section>
   </section>
 </template>
 
 <script>
-export default {}
+  import {MessageBox} from 'mint-ui'
+  import {mapState} from 'vuex'
+  import MtButton from '../../../node_modules/mint-ui/packages/button/src/button.vue'
+export default {
+    components:{MtButton},
+    computed:{
+      ...mapState(['user'])
+    },
+  methods:{
+      logout(){
+        MessageBox.confirm('确认退出登录吗').then(action=>{
+          console.log('确定');
+          this.$store.dispatch('logout')
+        },action=>{
+          console.log('取消');
+        })
+      }
+  }
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @import "../../common/stylus/mixins.styl"
   .profile
     width 100%
+    height 500px
     .profile-number
       margin-top 45.5px
       background #02a774
@@ -228,5 +253,4 @@ export default {}
             .icon-jiantou1
               color #bbb
               font-size 10px
-
 </style>

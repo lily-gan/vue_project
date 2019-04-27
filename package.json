@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-component": "^1.1.1",
+    "mint-ui": "^2.2.13",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "swiper": "^4.5.0",
