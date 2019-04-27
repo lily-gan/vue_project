@@ -7,6 +7,8 @@ import router from './router/router'
 import Header from './components/Header/Header.vue'
 import store from './store/index'
 import Star from './components/Star/Star.vue'
+import './validate/index'
+
 
 Vue.component('Header', Header)
 Vue.component('Star',Star)

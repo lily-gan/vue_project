@@ -4,6 +4,10 @@ import Order from '../pages/Order/Order.vue'
 import Search from '../pages/Search/Search.vue'
 import Profile from '../pages/Profile/Profile.vue'
 import Login from '../pages/Login/Login.vue'
+import Shop from '../pages/Shop/Shop.vue'
+import Ratings from '../pages/Shop/Ratings/Ratings.vue'
+import Goods from '../pages/Shop/Goods/Goods.vue'
+import Info from '../pages/Shop/Info/Info.vue'
 export default [
   {
     path: '/msite',
@@ -40,6 +44,28 @@ export default [
     meta: {
       isShowFooter: false
     }
+  },
+  {
+    path:'/shop',
+    component: Shop,
+    children:[
+      {
+        path:'/goods',
+        component:Goods
+      },
+      {
+        path:'/ratings',
+        component:Ratings
+      },
+      {
+        path:'/info',
+        component:Info
+      },
+      {
+        path:'',
+        redirect:'/goods'
+      }
+    ]
   },
   {
     path: '/',
