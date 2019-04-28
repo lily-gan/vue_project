@@ -13,7 +13,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-component": "^1.1.1",
+    "better-scroll": "^1.15.2",
     "mint-ui": "^2.2.13",
+    "mockjs": "^1.0.1-beta3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "swiper": "^4.5.0",

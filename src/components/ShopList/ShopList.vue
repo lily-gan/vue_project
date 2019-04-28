@@ -1,7 +1,7 @@
 <template>
   <div class="shop_container">
-    <ul class="shop_list" v-if="ShopList.length>0">
-      <li class="shop_li border-1px" v-for="(shop,index) in ShopList" :key="index" @click="$router.push('/shop')">
+    <ul class="shop_list" v-if="shopList.length>0">
+      <li class="shop_li border-1px" v-for="(shop,index) in shopList" :key="index" @click="$router.push('/shop')">
         <a>
           <div class="shop_left">
             <img class="shop_img" :src="'https://fuss10.elemecdn.com'+shop.image_path">
@@ -42,10 +42,6 @@
       <li><img src="../../common/images/shop_back.svg" alt="back"></li>
       <li><img src="../../common/images/shop_back.svg" alt="back"></li>
       <li><img src="../../common/images/shop_back.svg" alt="back"></li>
-      <li><img src="../../common/images/shop_back.svg" alt="back"></li>
-      <li><img src="../../common/images/shop_back.svg" alt="back"></li>
-      <li><img src="../../common/images/shop_back.svg" alt="back"></li>
-      <li><img src="../../common/images/shop_back.svg" alt="back"></li>
     </ul>
   </div>
 </template>
@@ -54,7 +50,10 @@
 import {mapState} from 'vuex'
 export default {
   computed: {
-    ...mapState(['ShopList'])
+    // ...mapState(['shopList'])
+    ...mapState({
+      shopList: state=>state.msite.shopList
+    })
   }
 }
 </script>

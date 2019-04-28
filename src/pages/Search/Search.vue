@@ -9,7 +9,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">

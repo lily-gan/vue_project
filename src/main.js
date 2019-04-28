@@ -8,7 +8,7 @@ import Header from './components/Header/Header.vue'
 import store from './store/index'
 import Star from './components/Star/Star.vue'
 import './validate/index'
-
+import './mock/mock-server'
 
 Vue.component('Header', Header)
 Vue.component('Star',Star)

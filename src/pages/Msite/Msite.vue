@@ -52,7 +52,11 @@ export default {
     ShopList
   },
   computed:{
-    ...mapState(['address','categorys']),
+    // ...mapState(['address','categorys']),
+    ...mapState({  //state是总状态
+      address: state => state.msite.address,
+      categorys: state => state.msite.categorys
+    }),
     categorysList() {
       const bigArr = []
       let smallArr = []

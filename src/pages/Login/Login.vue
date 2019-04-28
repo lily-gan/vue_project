@@ -35,7 +35,8 @@
                 <span style="color:red">{{errors.first('name')}}</span>
               </section>
               <section class="login_verification">
-                <input :type="isShowPassword ? 'text' : 'password' " maxlength="8" placeholder="密码" v-model="pwd" name="pwd" v-validate="{required:true,regex:/^.{6}$/}">
+                <input :type="isShowPassword ? 'text' : 'password' " maxlength="8" placeholder="密码" v-model="pwd" name="pwd"
+                       v-validate="{required:true}">
                 <div class="switch_button" :class="isShowPassword? 'on': 'off'"
                      @click="isShowPassword = !isShowPassword">
                   <div class="switch_circle" :class="{right:isShowPassword}"></div>
@@ -44,7 +45,8 @@
                 <span style="color: red">{{errors.first('pwd')}}</span>
               </section>
               <section class="login_message">
-                <input type="text" maxlength="11" placeholder="验证码" v-model="captcha" name="captcha" v-validate="{required:true,regex: /^.{4}$/}">
+                <input type="text" maxlength="11" placeholder="验证码" v-model="captcha" name="captcha"
+                       v-validate="{required:true,regex: /^.{4}$/}">
                 <img ref='captcha' class="get_verification" src="http://localhost:5000/captcha" alt="captcha" @click="updateCaptcha">
                 <span style="color:red">{{errors.first('captcha')}}</span>
               </section>
@@ -117,7 +119,7 @@
           } else {//密码登录
             //全部通过了,密码登录的请求
             result = await reqPwdLogin({name, pwd, captcha})
-            if(result.code !==0){
+            if(result.code !== 0){
               this.updateCaptcha()
               this.captcha=''
             }

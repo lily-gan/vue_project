@@ -50,20 +50,20 @@ export default [
     component: Shop,
     children:[
       {
-        path:'/goods',
+        path:'/shop/goods',
         component:Goods
       },
       {
-        path:'/ratings',
+        path:'/shop/ratings',
         component:Ratings
       },
       {
-        path:'/info',
+        path:'/shop/info',
         component:Info
       },
       {
         path:'',
-        redirect:'/goods'
+        redirect:'/shop/goods'
       }
     ]
   },

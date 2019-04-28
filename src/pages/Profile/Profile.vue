@@ -103,7 +103,9 @@
 export default {
     components:{MtButton},
     computed:{
-      ...mapState(['user'])
+      ...mapState({
+        user: state => state.user.user
+      })
     },
   methods:{
       logout(){
@@ -122,7 +124,7 @@ export default {
   @import "../../common/stylus/mixins.styl"
   .profile
     width 100%
-    height 500px
+    overflow hidden
     .profile-number
       margin-top 45.5px
       background #02a774

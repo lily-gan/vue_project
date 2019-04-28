@@ -5,13 +5,24 @@
     <section class="order_no_login">
       <img src="../../common/images/order/person.png">
       <h3>登录后查看外卖订单</h3>
-      <button>立即登陆</button>
+      <button @click="login">立即登录</button>
     </section>
   </section>
 </template>
 
 <script>
-export default {}
+import state from "../../store/modules/user";
+
+export default {
+  methods:{
+    login(){
+      const {user} = state
+      if(!user._id){
+        this.$router.replace('/login')
+      }
+    }
+  }
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
